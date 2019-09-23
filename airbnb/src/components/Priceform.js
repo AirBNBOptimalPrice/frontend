@@ -31,18 +31,11 @@ const PriceForm = ({ values, errors, touched, status }) => {
           <option value="Spandau">Spandau</option>
           <option value="Steglitz - Zehlendorf">Steglitz - Zehlendorf</option>
           <option value="Treptow - Köpenick">Treptow - Köpenick</option>
-         
-          
-          
-          
-          
-        
-
-          
+       
         </Field>
         
 
-        {touched.size && errors.size && <p className="error">{errors.size}</p>}
+        
         <Field component="select" className="propertytype" name="propertytype">
           <option>Property Type</option>
           <option value="house">House</option>
@@ -59,6 +52,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
           <option value="Boat">Boat</option>
           <option value="Other">Other</option>
         </Field>
+
         <Field component="select" className="accomoType" name="accomoType">
           <option>Tpye of Accomodation</option>
           <option value="entire">Entire home/apt</option>
@@ -66,10 +60,22 @@ const PriceForm = ({ values, errors, touched, status }) => {
           <option value="Shared room">Shared room</option>
         </Field>
 
-        <Field type="number" name="numPeople" placeholder="Number of people accomodates" />
+        <Field type="number" name="numPeople" placeholder="Number of Guests" />
         {touched.numPeople && errors.numPeople && (
           <p className="numPeople">{errors.numPeople}</p>
         )}
+
+        <label>
+         Accepts Extra Guests
+          <Field
+            type="checkbox"
+            name="extra_people"
+            checked={values.extra_people}
+          />
+        </label>
+
+        <Field type="number" name="price_extra_people" placeholder="Price per extra person." />
+        
 
         <Field type="number" name="baths" placeholder="Number of Bathrooms" />
         {touched.baths && errors.baths && (
@@ -113,35 +119,38 @@ const PriceForm = ({ values, errors, touched, status }) => {
  
         </Field>
 
-        <Field component="select" className="size" name="size">
-          <option>Property Size, square feet</option>
-          <option value="Studio">Less than 200</option>
-          <option value="1bed">Less than 500</option>
-          <option value="2bed">Less than 1000</option>
-          <option value="3bed">Less than 1500</option>
-          <option value="3+bed">Greater than 2000</option>
-        </Field>
-
-
-
-
-
-
-
-guests_included int64
-$ extra_people float64
-
-instant_bookable bool
-is_business_travel_ready bool
-cancellation_policy object
-TV/cable bool
-Internet/Wifi bool
-pets allowed bool
-int64 = integer
-float64 = floating point number(decimal)
-object = string
-bool = boolean (true/false)
-
+        <label>
+          Instant Bookable
+          <Field
+            type="checkbox"
+            name="instant_bookable"
+            checked={values.instant_bookable}
+          />
+        </label>
+        <label>
+          Business Ready Travel
+          <Field
+            type="checkbox"
+            name="is_business_travel_ready"
+            checked={values.is_business_travel_ready}
+          />
+        </label>
+        <label>
+          Cable TV
+          <Field
+            type="checkbox"
+            name="TVcable"
+            checked={values.TVcable}
+          />
+        </label>
+        <label>
+            Internet/Wifi
+          <Field
+            type="checkbox"
+            name="Internet/Wifi"
+            checked={values.is_business_travel_ready}
+          />
+        </label>
 
         <label>
           Pets Allowed
@@ -150,6 +159,7 @@ bool = boolean (true/false)
             name="pets"
             checked={values.vaccinations}
           />
+          
           <Field
             component="textarea"
             type="text"
