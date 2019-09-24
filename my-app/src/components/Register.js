@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Login({ history }) {
+export default function Register({ history }) {
   const [login, setLogin] = useState(
     {
       username: '',
@@ -16,7 +16,7 @@ export default function Login({ history }) {
   const handleSubmit = event => {
     console.log("login: ", login)
     event.preventDefault();
-    axios.post('https://bnb-web-backend.herokuapp.com/api/auth/login', login)
+    axios.post('https://bnb-web-backend.herokuapp.com/api/auth/register', login)
       .then(res => {
         console.log(res);
         localStorage.setItem('token', res.data.token);
@@ -25,15 +25,15 @@ export default function Login({ history }) {
       .catch(err => console.log(err.response));
   };
 
-  const handleRegister = event => {
-    history.push("/register")
+  const handleLogin = event => {
+    history.push("/")
   }
 
 
 
   return (
     <div>
-      <h2>Log in</h2> 
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -49,10 +49,10 @@ export default function Login({ history }) {
           onChange={handleChange}
           value={login.password}
         />
-        <button type="submit">Log in</button>
+        <button type="submit">Sign Up!</button>
 
       </form>
-      <button onClick={handleRegister}>Don't have an account? Sign up!</button>
+      <button onClick={handleLogin}>Already have an account? Log in.</button>
     </div>
   )
 }

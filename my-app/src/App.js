@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Link, Redirect } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Register from "./components/Register"
+import Login from "./components/Login"
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -19,7 +22,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 function App() {
   return (
     <div className="App">
-      <Route path="/login" component={Login} />
+      <Route exact path="/" component={Login} />
+      <Route exact path="/register" component={Register} />
       <PrivateRoute path="/dashboard" component={Dashboard}/>
     </div>
   );
