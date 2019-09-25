@@ -1,20 +1,32 @@
 import React from 'react';
 import './App.css';
-import Navigation from './components/Navbar'
+import { Route, Link, Redirect } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
-//import FormikOptForm from './components/Priceform';
+import Register from "./components/Register"
+import Login from "./components/Login"
+import Navigation from './components/Navbar';
 import FormikOptForm from './components/FormikOptForm';
 
 
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      localStorage.getItem("token") ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       
-        
-        <Dashboard/>
-      </header>
+      <Route exact path="/" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <PrivateRoute path="/dashboard" component={Dashboard}/>
     </div>
   );
 }
