@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import './priceforms.css'
+import airbnb from '../assets/airbnb.png'
 
 const OptForm = ({ values, errors, touched, status }) => {
   const [opt, setOpt] = useState([]);
@@ -13,7 +14,10 @@ const OptForm = ({ values, errors, touched, status }) => {
   }, [status]);
 
   return (
+  
     <div className="e-form">
+       <h1>New Listing Form</h1>
+       <img className="logo" src={airbnb} alt="Air bnb logo"/>
       <Form>
         <label>
         Neighborhood
