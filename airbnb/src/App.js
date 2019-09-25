@@ -4,8 +4,9 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Register from "./components/Register"
 import Login from "./components/Login"
-import Navigation from './components/Navbar';
 import FormikOptForm from './components/FormikOptForm';
+import Myproperties from './components/Myproperties';
+import UpdateProperty from './components/UpdateProperty';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -27,6 +28,9 @@ function App() {
       <Route exact path="/" component={Login} />
       <Route exact path="/register" component={Register} />
       <PrivateRoute path="/dashboard" component={Dashboard}/>
+      <Route path="/create" component={FormikOptForm}/>
+      <Route path="/manage" component={Myproperties} />
+      <Route path="/update" component={UpdateProperty} />
     </div>
   );
 }
