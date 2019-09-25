@@ -18,7 +18,7 @@ export default function Register({ history }) {
     event.preventDefault();
     axios.post('https://bnb-web-backend.herokuapp.com/api/auth/register', login)
       .then(res => {
-        console.log(res);
+        console.log("registration result:", res);
         localStorage.setItem('token', res.data.token);
         history.push("/dashboard");
       })

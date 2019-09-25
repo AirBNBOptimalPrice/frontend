@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import './priceforms.css'
 import airbnb from '../assets/airbnb.png'
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const OptForm = ({ values, errors, touched, status }) => {
   const [opt, setOpt] = useState([]);
@@ -61,21 +62,18 @@ const OptForm = ({ values, errors, touched, status }) => {
         </label>
         
         <label>
-          Accomodation    
-        <Field component="select" className="accommodates" name="accommodates">
-          <option>Type of Accomodation</option>
-          <option value="entire">Entire home/apt</option>
-          <option value="Private room">Private room</option>
-          <option value="Shared room">Shared room</option>
-        </Field>
+          Maximum Number of Guests   
+          <Field type="number" name="guests_included" placeholder="1" />
         </label>
 
         <label>
-        Number of Guests
+        Number of Guests Included in Base Price
         <Field type="number" name="guests_included" placeholder="1" />
-        {touched.numPeople && errors.numPeople && (
-          <p className="guests_included">{errors.numPeople}</p>
-        )}
+        </label>
+
+        <label>
+        Charge for extra persons
+        <Field type="number" name="extra_people" placeholder="0" />
         </label>
 
         <label>
@@ -111,7 +109,7 @@ const OptForm = ({ values, errors, touched, status }) => {
         </label>
 
         <label>
-        Cancellation 
+        Cancellation Policy
         <Field component="select" className="cancellation_policy" name="cancellation_policy">
           <option>Policy</option>
           <option value="strict">strict_14_with_grace_period</option>
@@ -122,17 +120,6 @@ const OptForm = ({ values, errors, touched, status }) => {
         </Field>
         </label>
 
-        <label>
-        Type of bed
-        <Field component="select" className="bedType" name="bedType">
-          <option>Bed Type</option>
-          <option value="Real Bed">Real Bed</option>
-          <option value="Pull-out Sofa">Pull-out Sofa</option>
-          <option value="Futon">Futon</option>
-          <option value="Couch">Couch</option>
-          <option value="Airbed">Airbed</option>
-        </Field>
-        </label>
           <br></br>
         <label>
           Instant Bookable
@@ -143,14 +130,7 @@ const OptForm = ({ values, errors, touched, status }) => {
           />
         </label>
         <br></br>
-        <label>
-          Business Ready Travel
-          <Field
-            type="checkbox"
-            name="is_business_travel_ready"
-            checked={values.is_business_travel_ready}
-          />
-        </label>
+        
         <br></br>
         <label>
           Cable TV
@@ -161,28 +141,21 @@ const OptForm = ({ values, errors, touched, status }) => {
           />
         </label>
         <br></br>
-        <label>
-            Internet/Wifi
-          <Field
-            type="checkbox"
-            name="internet"
-            checked={values.internet}
-          />
-        </label>
+       
         <br></br>
         <label>
           Pets Allowed
           <Field
             type="checkbox"
-            name="pets"
+            name="pets_allowed"
             checked={values.pets}
           />
         </label>
         <br></br>
           <Field
             component="textarea"
-            type="description"
-            name="notes"
+            type="text"
+            name="description"
             placeholder="Please give a breif description of the property"
           />
         <br></br>
@@ -201,13 +174,13 @@ const OptForm = ({ values, errors, touched, status }) => {
   );
 };
 const FormikOptForm = withFormik({
-  mapPropsToValues({ neighbourhood_group_cleansed, property_type, guests_included, numPeople, extra_people, bathrooms,
-    bedrooms, security_deposit, cleaning_fee , minimum_nights, cancellation_policy, bedType, instant_bookable, is_business_travel_ready, tv_cable, internet,  pets, description}) {
+  mapPropsToValues({ neighbourhood_group_cleansed, property_type, guests_included, accomodates, extra_people, bathrooms,
+    bedrooms, security_deposit, cleaning_fee , minimum_nights, cancellation_policy, instant_bookable, tv_cable,  pets_allowed, description}) {
     return {
       neighbourhood_group_cleansed: neighbourhood_group_cleansed || "",  //predefined field(ex. email already in field) or empty
       property_type: property_type || "",
       guests_included: guests_included || "",
-      numPeople: numPeople || 1,
+      accomodates: accomodates || 1,
       extra_people: extra_people || 0,
       bathrooms: bathrooms || "",
       bedrooms: bedrooms || "",
@@ -215,29 +188,27 @@ const FormikOptForm = withFormik({
       cleaning_fee : cleaning_fee  || 0,
       minimum_nights: minimum_nights || 1, //predefined fields
       cancellation_policy: cancellation_policy || "",
-      bedType: bedType || "",
-      instant_bookable: instant_bookable || "",
-      is_business_travel_ready: is_business_travel_ready || "",
-      tv_cable: tv_cable || "",
-      internet: internet || "",
-      pets: pets || "",
+      instant_bookable: instant_bookable || false,
+      tv_cable: tv_cable || false,
+      pets_allowed: pets_allowed || false,
       description: description || "",
     };
   },
   validationSchema:
   Yup.object().shape({
-    numPeople: Yup.string().required("Please specify max number of guests"),
     bathrooms: Yup.string().required("Please specify max number of bathrooms"),
     bedrooms: Yup.string().required("Please specify number of beds"),
   }),
   //You can use this to see the values
-  handleSubmit(values, { setStatus }) {
-    axios
-      .post("https://reqres.in/api/users/", values)
+  handleSubmit(values, {setStatus}) {
+    console.log("Object of data:", values)
+    axiosWithAuth()
+      .post("https://bnb-web-backend.herokuapp.com/api/features/add-features", values)
       .then(res => {
-        setStatus(res.data);
+        console.log(res);
+        setStatus(res);
       })
-      .catch(err => console.log(err.res));
+      .catch(err => console.log("Error:", err.res));
   }
 })(OptForm);
 console.log("This is the HOC", FormikOptForm);
