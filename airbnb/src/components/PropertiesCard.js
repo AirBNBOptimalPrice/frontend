@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import {
   Card, CardImg, CardText, CardBody,
- CardSubtitle
+  CardSubtitle
 } from 'reactstrap';
 
 export default function PropertiesCard(props) {
-  return(
-      <div>
-        <Card>
-          <CardImg top width="100%" src={props.url} alt="Card image cap" />
-          <CardBody>
+  return (
+    <div>
+      <Card>
+        <CardBody>
+          <Link to="/update">
             <CardSubtitle>{props.neighbourhood_group_cleansed}</CardSubtitle>
             <CardSubtitle>{props.property_type}</CardSubtitle>
             <CardSubtitle>{props.accommodates}</CardSubtitle>
@@ -24,9 +25,11 @@ export default function PropertiesCard(props) {
             <CardSubtitle>{props.tv_cable}</CardSubtitle>
             <CardSubtitle>{props.pets}</CardSubtitle>
             <CardText>{props.description}</CardText>
-          </CardBody>
-        </Card>
-      </div>
+            Update property
+          </Link>
+        </CardBody>
+      </Card>
+    </div>
   )
 }
 

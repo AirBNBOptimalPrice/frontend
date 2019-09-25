@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import { Card, Button, CardTitle, CardText, Row, Col, CardImg } from 'reactstrap';
 import bedroom from '../assets/bedroom.jpg'
 import living from '../assets/livingroom.jpg'
@@ -28,7 +29,7 @@ const Dashboard = (props) => {
           <Card body>
             <CardTitle>My Properties</CardTitle>
             <CardText>Manage your propties.</CardText>
-            <Button>My Properties</Button>
+            <Button ><Link to="/manage">My Properties</Link></Button>
           </Card>
         </Col>
         <Col sx="3">
@@ -36,7 +37,7 @@ const Dashboard = (props) => {
           <Card body>
             <CardTitle>Create a New Listing</CardTitle>
             <CardText>List a new propety.</CardText>
-            <Button>New Listing</Button>
+            <Button><Link to ="/create">New Listing</Link></Button>
           </Card>
         </Col>
         
