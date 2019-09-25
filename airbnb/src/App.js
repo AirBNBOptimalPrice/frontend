@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Navigation from './components/Navbar'
 import Dashboard from './components/Dashboard';
-import FormikOptForm from './components/Priceform';
+//import FormikOptForm from './components/Priceform';
+import FormikOptForm from './components/FormikOptForm';
 
 
 
@@ -11,8 +12,8 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-        <FormikOptForm/>
         
+        <FormikOptForm/>
       </header>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import PropertiesCard from './PropertiesCard'
+import PropertiesCard from './PropertiesCard'  
 import {SearchForm} from './SearchForm'
 
 export default function Myproperties() {
@@ -29,15 +29,27 @@ export default function Myproperties() {
     <section className="character-list grid-view">
       
       <h2>{place.map((e, index) => (
-        <CharacterCard
+        <PropertiesCard
         key = {index}
-        name= {e.name}
-        species= {e.species}
-        status= {e.status}
-        type= {e.type}
-        url= {e.image}
+        description= {e.neighbourhood_group_cleansed}
+        property_type= {e.property_type}
+        accommodates= {e.accommodates}
+        bathrooms= {e.bathrooms}
+        bedrooms= {e.bedrooms}
+        security_deposit= {e.security_deposit}
+        cleaning_fee= {e.cleaning_fee}
+        guests_included= {e.guests_included}
+        extra_people= {e.extra_people}
+        minimum_nights= {e.minimum_nights}
+        instant_bookable= {e.instant_bookable}
+        cancellation_policy= {e.cancellation_policy}
+        tv_cable= {e.tv_cable}
+        pets= {e.pets}
+        description= {e.description}
+
         /> 
       ))}</h2>
     </section>
   )
 }
+

@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
-// Form - takes care of handleSubmit and handleReset
 import * as Yup from "yup";
 import axios from "axios";
 import './priceforms.css'
 
-//destructured props to use props we want 
-// onchange{handlechange}, is a prop from Formik captures what is entered in fields
-const PriceForm = ({ values, errors, touched, status }) => {
-  const [ info, setInfo] = useState([]);
+const OptForm = ({ values, errors, touched, status }) => {
+  const [opt, setOpt] = useState([]);
   useEffect(() => {
     if (status) {
-      setInfo([...info, status]);
+      setOpt([...opt, status]);
     }
   }, [status]);
 
-
   return (
-    <div className="price-form">
-      <Form > 
+    <div className="e-form">
+      <Form>
         <label>
         Neighborhood
       <Field component="select" className="neighborhood" name="neighbourhood_group_cleansed">
@@ -37,7 +33,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
           <option value="Treptow - Köpenick">Treptow - Köpenick</option>
         </Field>
         </label>
-
+      
         <label>
         Property Type
         <Field component="select" className="property_type" name="property_type">
@@ -57,11 +53,11 @@ const PriceForm = ({ values, errors, touched, status }) => {
           <option value="Other">Other</option>
         </Field>
         </label>
-
+        
         <label>
-          Type of Accomodation  
+          Accomodation    
         <Field component="select" className="accommodates" name="accommodates">
-          <option>Tpye of Accomodation</option>
+          <option>Type of Accomodation</option>
           <option value="entire">Entire home/apt</option>
           <option value="Private room">Private room</option>
           <option value="Shared room">Shared room</option>
@@ -74,11 +70,6 @@ const PriceForm = ({ values, errors, touched, status }) => {
         {touched.numPeople && errors.numPeople && (
           <p className="guests_included">{errors.numPeople}</p>
         )}
-        </label>
-
-        <label>
-        Charge for extra guests 
-        <Field type="number" name="extra_people" placeholder="0" />
         </label>
 
         <label>
@@ -99,10 +90,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
 
         <label>
         Security Deposit
-        <Field type="number" name="security_deposit" placeholder="Security Deposit" />
-        {touched.security && errors.security && (
-          <p className="security_deposit">{errors.security}</p>
-        )}
+        <Field type="number" name="security_deposit" placeholder="0" />
         </label>
 
         <label>
@@ -112,14 +100,14 @@ const PriceForm = ({ values, errors, touched, status }) => {
         </label>
 
         <label>
-        Minimum nights stay
+        Minimum nights
         <Field type="number" name="minimum_nights" placeholder="1" />
         </label>
 
         <label>
-        Cancellation Policy
+        Cancellation 
         <Field component="select" className="cancellation_policy" name="cancellation_policy">
-          <option>cancellation_policylation Policy</option>
+          <option>Policy</option>
           <option value="strict">strict_14_with_grace_period</option>
           <option value="flexible">flexible</option>
           <option value="moderate">moderate</option>
@@ -129,7 +117,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
         </label>
 
         <label>
-        Bed Type
+        Type of bed
         <Field component="select" className="bedType" name="bedType">
           <option>Bed Type</option>
           <option value="Real Bed">Real Bed</option>
@@ -139,7 +127,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
           <option value="Airbed">Airbed</option>
         </Field>
         </label>
-
+          <br></br>
         <label>
           Instant Bookable
           <Field
@@ -148,7 +136,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
             checked={values.instant_bookable}
           />
         </label>
-
+        <br></br>
         <label>
           Business Ready Travel
           <Field
@@ -157,7 +145,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
             checked={values.is_business_travel_ready}
           />
         </label>
-
+        <br></br>
         <label>
           Cable TV
           <Field
@@ -166,7 +154,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
             checked={values.tvcable}
           />
         </label>
-
+        <br></br>
         <label>
             Internet/Wifi
           <Field
@@ -175,7 +163,7 @@ const PriceForm = ({ values, errors, touched, status }) => {
             checked={values.internet}
           />
         </label>
-
+        <br></br>
         <label>
           Pets Allowed
           <Field
@@ -184,36 +172,40 @@ const PriceForm = ({ values, errors, touched, status }) => {
             checked={values.pets}
           />
         </label>
-
-        <button>Submit</button>
-      </Form> 
-      {info.map(e => {
-        console.log(info);
+        <br></br>
+          <Field
+            component="textarea"
+            type="description"
+            name="notes"
+            placeholder="Please give a breif description of the property"
+          />
+        <br></br>
+        <button>Submit!</button>
+      </Form>
+      {opt.map(e => {
+        console.log(e)
         return(
         <ul key={e.id}>
-        <li>guests:{e.numPeople}</li>
-        <li>Size: {e.beds}</li>
-        <li>Diet: {e.baths}</li>
-        <li>neighborhood: {e.neighborhood}</li>
+          <li>bedrooms:{e.bedrooms}</li>
+          <li>bathrooms: {e.bathrooms}</li>
+          <li>property_type: {e.property_type}</li>
         </ul>)
-        })}
+      })}
     </div>
   );
 };
-
 const FormikOptForm = withFormik({
   mapPropsToValues({ neighbourhood_group_cleansed, property_type, guests_included, numPeople, extra_people, bathrooms,
-    bedrooms, security_deposit, cleaning_fee , minimum_nights, cancellation_policy, bedType, instant_bookable, is_business_travel_ready, tv_cable, internet,  pets }) {
+    bedrooms, security_deposit, cleaning_fee , minimum_nights, cancellation_policy, bedType, instant_bookable, is_business_travel_ready, tv_cable, internet,  pets, description}) {
     return {
-    
-    neighbourhood_group_cleansed: neighbourhood_group_cleansed || "",  //predefined field(ex. email already in field) or empty
-     property_type: property_type || "",
+      neighbourhood_group_cleansed: neighbourhood_group_cleansed || "",  //predefined field(ex. email already in field) or empty
+      property_type: property_type || "",
       guests_included: guests_included || "",
       numPeople: numPeople || 1,
       extra_people: extra_people || 0,
       bathrooms: bathrooms || "",
       bedrooms: bedrooms || "",
-      security_deposit: security_deposit || "",
+      security_deposit: security_deposit || 0,
       cleaning_fee : cleaning_fee  || 0,
       minimum_nights: minimum_nights || 1, //predefined fields
       cancellation_policy: cancellation_policy || "",
@@ -223,13 +215,14 @@ const FormikOptForm = withFormik({
       tv_cable: tv_cable || "",
       internet: internet || "",
       pets: pets || "",
+      description: description || "",
     };
   },
-  validationSchema: Yup.object().shape({
+  validationSchema:
+  Yup.object().shape({
     numPeople: Yup.string().required("Please specify max number of guests"),
     bathrooms: Yup.string().required("Please specify max number of bathrooms"),
     bedrooms: Yup.string().required("Please specify number of beds"),
-  
   }),
   //You can use this to see the values
   handleSubmit(values, { setStatus }) {
@@ -240,6 +233,6 @@ const FormikOptForm = withFormik({
       })
       .catch(err => console.log(err.res));
   }
-})(PriceForm); //takes in Priceform and returns FormikOptForm
+})(OptForm);
 console.log("This is the HOC", FormikOptForm);
 export default FormikOptForm;
