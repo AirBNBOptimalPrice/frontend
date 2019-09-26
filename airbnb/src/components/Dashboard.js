@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom'
 import { Card, Button, CardTitle, CardText, Row, Col, CardImg } from 'reactstrap';
 import bedroom from '../assets/bedroom.jpg'
 import living from '../assets/livingroom.jpg'
-import arrow from '../assets/arrow.jpg'
-import coin from '../assets/coin.jpg'
-import opt from '../assets/opt.png'
 import airbnb from '../assets/airbnb.png'
 import styled from "styled-components"
 
