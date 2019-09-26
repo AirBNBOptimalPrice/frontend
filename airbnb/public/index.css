@@ -181,16 +181,23 @@ body {
     transition: all 1000ms;
 }
 
-.toApp{
+.content .title{
+    color: chocolate;
+    font-size: 2rem
+}
+
+.toApp a{
     font-family: 'Indie Flower', cursive;
     color: blue;
     font-size: 3rem;
+    text-decoration: none;
 }
 
-.developers{
+.developers a{
     font-family: 'Roboto Slab', serif;
     font-size: 2rem;
-    color: chocolate
+    color: purple;
+    text-decoration: none;
 }
 
 .content .logo{
@@ -252,146 +259,35 @@ body {
     font-size: 3rem;
     color: black;
 }
+.containerTest {
+    position: relative;
+    width: 100%;
+  }
+  @media (max-width: 500px) {
+    .containerTest {
+      margin-top: 20px;
+    }
+  }
 
 .writeup{
     height: 100%;
     width: 80%;
-    border: 1px solid black;
     padding: 0;
     margin: 1rem;
 }
 
 .writeup h2{
+    font-size: 3rem;
+    color:black;
+}
+.writeup li{
     font-size: 2rem;
     color:black;
 }
-.writeup p{
-    font-size: 1.5rem;
-    color:black;
-}
 
 
 
-.indexBody {
-    margin-bottom: 150px;
-    margin-left: 40px;
-  }
-  @media (max-width: 500px) {
-    .indexBody {
-      width: 110%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 0 auto;
-    }
-  }
-  a {
-    font-size: 2rem;
-  }
-  .aboutUsOne {
-    display: flex;
-    flex-wrap: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-  }
-  @media (max-width: 500px) {
-    .aboutUsOne {
-      flex-wrap: wrap;
-    }
-  }
-  .aboutUsOne .proText {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    width: 152px;
-  }
-  @media (max-width: 500px) {
-    .aboutUsOne .proText {
-      align-items: stretch;
-      font-size: 1rem;
-    }
-  }
-  .aboutUsOne .proText h3 {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    margin-right: 22px;
-    margin-left: 22px;
-    width: 110px;
-  }
-  @media (max-width: 500px) {
-    .aboutUsOne .proText h3 {
-      font-size: 2rem;
-    }
-  }
-  .aboutUsOne .proText a {
-    font-size: 1.3rem;
-    text-decoration: none;
-    color: #424242;
-  }
-  .aboutUsTwo {
-    display: flex;
-    flex-wrap: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-  }
-  @media (max-width: 500px) {
-    .aboutUsTwo {
-      flex-wrap: wrap;
-    }
-  }
-  .aboutUsTwo .proText {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    width: 152px;
-  }
-  @media (max-width: 500px) {
-    .aboutUsTwo .proText {
-      align-items: stretch;
-    }
-  }
-  .aboutUsTwo .proText h3 {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    margin-right: 22px;
-    margin-left: 22px;
-    width: 110px;
-  }
-  @media (max-width: 500px) {
-    .aboutUsTwo .proText h3 {
-      font-size: 2rem;
-    }
-  }
-  .aboutUsTwo .proText a {
-    font-size: 1.3rem;
-    text-decoration: none;
-    color: #424242;
-  }
-  .profile {
-    margin-top: 200px;
-    margin-bottom: 200px;
-  }
-  @media (max-width: 500px) {
-    .profile {
-      margin-top: 100px;
-    }
-  }
-  .profile h1 {
-    margin-top: 80px;
-    color: white;
-    font-weight: bold;
-    font-size: 65px;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    justify-content: center;
-  }
-  @media (max-width: 500px) {
-    .profile h1 {
-      margin-top: 10px;
-    }
-  }
+
   .githubLogo {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
@@ -403,15 +299,7 @@ body {
       margin: 0 auto;
     }
   }
-  .containerTest {
-    position: relative;
-    width: 100%;
-  }
-  @media (max-width: 500px) {
-    .containerTest {
-      margin-top: 20px;
-    }
-  }
+ 
   .image {
     display: block;
     width: 150px;
