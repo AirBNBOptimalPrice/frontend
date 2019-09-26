@@ -16,8 +16,10 @@ const OptForm = ({ values, errors, touched, status }) => {
   }, [status]);
 
   return (
-  
+    <div>
+    <div className='backgroundOpt'></div>
     <div className="e-form">
+      
        <button><Link to="/dashboard">Home</Link></button>
        <h1>New Listing Form</h1>
        <img className="logo" src={airbnb} alt="Air bnb logo"/>
@@ -170,6 +172,7 @@ const OptForm = ({ values, errors, touched, status }) => {
           <li>property_type: {e.property_type}</li>
         </ul>)
       })}
+    </div>
     </div>
   );
 };

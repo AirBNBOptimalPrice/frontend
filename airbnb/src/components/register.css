@@ -1,5 +1,5 @@
-.background {
-    background-image: url("../assets/aircover.jpg");
+.backgroundR {
+    background-image: url("../assets/livingroom.jpg");
     background-color: #cccccc;
     height: 500px;
     background-size: cover;
@@ -7,12 +7,12 @@
     background-position: center;
     position: relative;
     display: block;
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
-    transition: all 2000ms;
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    transition: all 1000ms;
 }
 
-.background:hover{
+.backgroundR:hover{
     filter: blur(0px);
     -webkit-filter: blur(0px);
 }

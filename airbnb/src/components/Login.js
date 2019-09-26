@@ -33,27 +33,28 @@ export default function Login({ history }) {
 
 
   return (
-    <div className='background'>
-      <h2 className='content'>Log in</h2> 
+    <div>
+    <div className='background'>Log In</div>
+      <div className='content'> 
       <form onSubmit={handleSubmit}>
-        <input className='content'
+        <input 
           type="text"
           name="username"
           placeholder="username"
           onChange={handleChange}
           value={login.username}
         />
-        <input className='content'
+        <input 
           type="password"
           name="password"
           placeholder="password"
           onChange={handleChange}
           value={login.password}
-        />
-        <button className='content' type="submit">Log in</button>
+        />  
+        <button  class='button' type="submit">Log in</button>
       </form>
-      <button onClick={handleRegister}>Don't have an account? Sign up!</button>
-     
-    </div>
+      <button class='button' onClick={handleRegister}>No account? Sign up!</button>
+     </div>
+     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './register.css';
 
 export default function Register({ history }) {
   const [login, setLogin] = useState(
@@ -33,6 +34,8 @@ export default function Register({ history }) {
 
   return (
     <div>
+      <div className='backgroundR'></div>
+      <div className='content'> 
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -53,6 +56,7 @@ export default function Register({ history }) {
 
       </form>
       <button onClick={handleLogin}>Already have an account? Log in.</button>
+    </div>
     </div>
   )
 }

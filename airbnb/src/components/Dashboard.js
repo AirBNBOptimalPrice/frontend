@@ -29,7 +29,7 @@ const Dashboard = (props) => {
           <Card body>
             <CardTitle>My Properties</CardTitle>
             <CardText>Manage your propties.</CardText>
-            <Button ><Link to="/manage">My Properties</Link></Button>
+            <Button><Link to="/manage">My Properties</Link></Button>
           </Card>
         </Col>
         <Col sx="3">
