@@ -1,0 +1,38 @@
+.App {
+    content:"login";
+    height: 100wh;
+    width: 100%;
+    background-image: url("../assets/bedroom.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    filter: blur(4px);
+    -webkit-filter: blur(10px);
+    transition: all 1000ms;
+}
+
+.background:hover{
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+
+.content{
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left:50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+    opacity: 1;
+
+}
+
+.content{
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}

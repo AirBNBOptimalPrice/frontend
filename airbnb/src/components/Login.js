@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './Login.css';
 
 export default function Login({ history }) {
   const [login, setLogin] = useState(
@@ -32,27 +33,27 @@ export default function Login({ history }) {
 
 
   return (
-    <div>
-      <h2>Log in</h2> 
+    <div className='background'>
+      <h2 className='content'>Log in</h2> 
       <form onSubmit={handleSubmit}>
-        <input
+        <input className='content'
           type="text"
           name="username"
           placeholder="username"
           onChange={handleChange}
           value={login.username}
         />
-        <input
+        <input className='content'
           type="password"
           name="password"
           placeholder="password"
           onChange={handleChange}
           value={login.password}
         />
-        <button type="submit">Log in</button>
-
+        <button className='content' type="submit">Log in</button>
       </form>
       <button onClick={handleRegister}>Don't have an account? Sign up!</button>
+     
     </div>
   )
 }

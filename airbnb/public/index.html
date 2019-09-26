@@ -10,6 +10,9 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="logo192.png" />
+    <link href="index.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="img/android-chrome-192x192.png">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto+Slab&display=swap" rel="stylesheet">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -26,18 +29,66 @@
     -->
     <title>React App</title>
   </head>
+
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <header class='case'>
+      <div class="content">
+          <img class="logo" src="./images/airbnb.png" alt="Air Bnb Logo">
+          <div class="title">The Air Bnb Price Optimizer</div>
+      
+        <div class="toApp">Take me to the App!</div>
+        <div class="developers">Meet the Developers</div>
+    </div>
+  </header>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+   Team 
+  <section class="team">
+      <div>
+          <h2>Meet the Delevlopers</h2>
+          <i class="fab fa-airbnb fa-3x"></i>
+      </div>
+    </section>
+  <section class='cards'>
+    <div class= "proText">
+        <div class="containerTest">
+            <img class= "image" src= "./images/Russ.jpg" alt= "Russell Terry">
+                <div class="overlay">
+                    <div class="text">WEB UI</div>
+                </div>
+            <h1>Russell Terry</h1>
+            <a href= "https://github.com/Surfsol"><img class= "githubLogo" src= "/img/GitHub_Logo.png" alt= "github logo"></a>
+        </div>
+        <div class="writeup">
+          <h2>Highlights</h2>
+          <p>
+              Collaborative and work in a team environment.
+              Created React components and used events in application to add dynamic functionality to app.
+              Organized code at the component level, proper usage of state and props are demonstrated throughout the project, the UI is composed of small reusable components, proper usage of useState and useEffect hooks are clearly incorperated and correctly implemented.
+              Implemented Read operations using either Axios or Fetch to display 3rd party data on page. Route management properly installed and used to show top level pages as well as nested views where necessary. Data displayed on page is properly laid out in a modern easy to interperate fashion. Seemless integration of UI static landing page now incorporated.
+          </p>
+        </div>
+    </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div class= "proText">
+        <div class="containerTest">
+            <img class= "image" src= "./images/Russ.jpg" alt= "Bradley">
+                <div class="overlay">
+                    <div class="text">WEB UI</div>
+                </div>
+            <h3>Bradley</h3>
+            <a href= "https://github.com/Boltsnut24"><img class= "githubLogo" src= "/img/GitHub_Logo.png" alt= "github logo"></a>
+        </div>
+        <div class="writeup">
+            <h4>Requirements</h4>
+            <p>
+                Collaborative and work in a team environment.
+                Created functional components and used events in application to add dynamic functionality to app.
+                Organized code at the component level, proper usage of state and props are demonstrated throughout the project, the UI is composed of small reusable components, proper usage of useState and useEffect hooks are clearly incorperated and correctly implemented.
+                Implemented Read operations using either Axios or Fetch to display 3rd party data on page. Route management properly installed and used to show top level pages as well as nested views where necessary. Data displayed on page is properly laid out in a modern easy to interperate fashion. Seemless integration of UI static landing page now incorporated.
+            </p>
+          </div>
+    </div>
+
+</section>
   </body>
 </html>
