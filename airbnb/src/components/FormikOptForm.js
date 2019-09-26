@@ -22,6 +22,7 @@ const OptForm = ({ values, errors, touched, status }) => {
        <h1>New Listing Form</h1>
        <img className="logo" src={airbnb} alt="Air bnb logo"/>
       <Form>
+
         <label>
         Neighborhood
       <Field component="select" className="neighborhood" name="neighbourhood_group_cleansed">
@@ -63,7 +64,7 @@ const OptForm = ({ values, errors, touched, status }) => {
         
         <label>
           Maximum Number of Guests   
-          <Field type="number" name="guests_included" placeholder="1" />
+          <Field type="number" name="accommodates" placeholder="1" />
         </label>
 
         <label>
@@ -174,13 +175,13 @@ const OptForm = ({ values, errors, touched, status }) => {
   );
 };
 const FormikOptForm = withFormik({
-  mapPropsToValues({ neighbourhood_group_cleansed, property_type, guests_included, accomodates, extra_people, bathrooms,
+  mapPropsToValues({neighbourhood_group_cleansed, property_type, guests_included, accommodates, extra_people, bathrooms,
     bedrooms, security_deposit, cleaning_fee , minimum_nights, cancellation_policy, instant_bookable, tv_cable,  pets_allowed, description}) {
     return {
       neighbourhood_group_cleansed: neighbourhood_group_cleansed || "",  //predefined field(ex. email already in field) or empty
       property_type: property_type || "",
-      guests_included: guests_included || "",
-      accomodates: accomodates || 1,
+      guests_included: guests_included || 1,
+      accommodates: accommodates || 1,
       extra_people: extra_people || 0,
       bathrooms: bathrooms || "",
       bedrooms: bedrooms || "",
