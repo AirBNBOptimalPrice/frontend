@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import './priceforms.css'
 import airbnb from '../assets/airbnb.png'
 import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 const OptForm = ({ values, errors, touched, status }) => {
   const [opt, setOpt] = useState([]);
@@ -149,7 +149,7 @@ const OptForm = ({ values, errors, touched, status }) => {
           <Field
             type="checkbox"
             name="pets_allowed"
-            checked={values.pets}
+            checked={values.pets_allowed}
           />
         </label>
         <br></br>
@@ -157,13 +157,12 @@ const OptForm = ({ values, errors, touched, status }) => {
             component="textarea"
             type="text"
             name="description"
-            placeholder="Please give a breif description of the property"
+            placeholder="Please give a brief description of the property"
           />
         <br></br>
         <button>Submit!</button>
       </Form>
       {opt.map(e => {
-        console.log(e)
         return(
         <ul key={e.id}>
           <li>bedrooms:{e.bedrooms}</li>
@@ -203,11 +202,16 @@ const FormikOptForm = withFormik({
   //You can use this to see the values
   handleSubmit(values, {setStatus}) {
     console.log("Object of data:", values)
+
+    axios.post('https://airbnb-optimal-price.herokuapp.com/api', values)
+      .then(res => {
+        console.log("DS Post Response ", res)
+      })
+
     axiosWithAuth()
       .post("https://bnb-web-backend.herokuapp.com/api/features/add-features", values)
       .then(res => {
-        console.log(res);
-        setStatus(res);
+        console.log("Web Backend Post Respones: ", res)
       })
       .catch(err => console.log("Error:", err.res));
   }
