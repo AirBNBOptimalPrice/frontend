@@ -8,12 +8,12 @@ import {
 import { PropertyContext } from "../contexts/PropertyContext";
 
 export default function PropertiesCard(props) {
-  console.log("in card:", props)
+ 
   const place = useContext(PropertyContext);
-
+  console.log(place)
   function handleDelete(e) {
     e.preventDefault();
-    axiosWithAuth().delete(`https://bnb-web-backend.herokuapp.com/api/features/${props.id}`)
+    axiosWithAuth().delete(`https://bnb-web-backend.herokuapp.com/api/features/${place.id}`)
       .then(res => {
         console.log(res)
         window.location.reload();

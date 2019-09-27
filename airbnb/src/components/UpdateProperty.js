@@ -7,7 +7,7 @@ import airbnb from '../assets/airbnb.png'
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { PropertyContext } from "../contexts/PropertyContext";
 
-const UpdatePropertyForm = ({ values, errors, touched, status, }) => {
+const UpdatePropertyForm = ({ values, errors, touched, status }) => {
   const [opt, setOpt] = useState([]);
   useEffect(() => {
     if (status) {
