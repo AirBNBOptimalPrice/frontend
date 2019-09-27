@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './Login.css';
+import { Route, Link } from 'react-router-dom'
+import About from './about'
 
 export default function Login({ history }) {
   const [login, setLogin] = useState(
@@ -30,6 +32,9 @@ export default function Login({ history }) {
     history.push("/register")
   }
 
+  const handleAbout = event => {
+    history.push("/about")
+  }
 
 
   return (
@@ -54,6 +59,8 @@ export default function Login({ history }) {
         <button  class='button' type="submit">Log in</button>
       </form>
       <button class='button' onClick={handleRegister}>No account? Sign up!</button>
+      <button> <Link to="/about">Meet the Developers</Link></button>
+      <Route path="/about" component={About} />
      </div>
      </div>
   )

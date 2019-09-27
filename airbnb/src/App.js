@@ -7,6 +7,7 @@ import Login from "./components/Login"
 import FormikOptForm from './components/FormikOptForm';
 import Myproperties from './components/Myproperties';
 import UpdateProperty from './components/UpdateProperty';
+import About from './components/about';
 import { PropertyContext } from './contexts/PropertyContext';
 
 
@@ -32,6 +33,7 @@ function App() {
       <PrivateRoute path="/dashboard" component={Dashboard}/>
       <Route path="/create" component={FormikOptForm}/>
       <Route path="/manage" component={Myproperties} />
+      <Route path="/about" component={About} />
 
       <PropertyContext.Provider><Route path="/update" component={UpdateProperty} /></PropertyContext.Provider>
     </div>
