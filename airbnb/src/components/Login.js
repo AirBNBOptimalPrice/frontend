@@ -32,9 +32,6 @@ export default function Login({ history }) {
     history.push("/register")
   }
 
-  const handleAbout = event => {
-    history.push("/about")
-  }
 
 
   return (
