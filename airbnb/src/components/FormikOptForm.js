@@ -63,7 +63,7 @@ const OptForm = ({ values, errors, touched, status }) => {
           <option value="Other">Other</option>
         </Field>
         </label>
-        
+        <br></br>
         <label>
           Maximum Number of Guests   
           <Field type="number" name="accommodates" placeholder="1" />
@@ -78,7 +78,7 @@ const OptForm = ({ values, errors, touched, status }) => {
         Charge for extra persons
         <Field type="number" name="extra_people" placeholder="0" />
         </label>
-
+        <br></br>
         <label>
         Bathrooms
         <Field type="number" name="bathrooms" placeholder="Number of Bathrooms" />
@@ -94,7 +94,7 @@ const OptForm = ({ values, errors, touched, status }) => {
           <p className="bedrooms">{errors.beds}</p>
         )}
         </label>
-
+        <br></br>
         <label>
         Security Deposit
         <Field type="number" name="security_deposit" placeholder="0" />
@@ -110,7 +110,7 @@ const OptForm = ({ values, errors, touched, status }) => {
         Minimum nights
         <Field type="number" name="minimum_nights" placeholder="1" />
         </label>
-
+        <br></br>
         <label>
         Cancellation Policy
         <Field component="select" className="cancellation_policy" name="cancellation_policy">
