@@ -9,7 +9,12 @@ import styled from "styled-components"
 const Div = styled.div`
     width: 90%
 `
-
+const ButtonRed = styled.button`
+    color: smokewhite;
+    background-color: #FB414D;
+    text-align: center;
+    margin: auto;
+`
 
 
 const Dashboard = (props) => {
@@ -26,7 +31,7 @@ const Dashboard = (props) => {
           <Card body>
             <CardTitle>My Properties</CardTitle>
             <CardText>Manage your propties.</CardText>
-            <Button><Link to="/manage">My Properties</Link></Button>
+            <ButtonRed><Link to="/manage">My Properties</Link></ButtonRed>
           </Card>
         </Col>
         <Col sx="3">
@@ -34,7 +39,7 @@ const Dashboard = (props) => {
           <Card body>
             <CardTitle>Create a New Listing</CardTitle>
             <CardText>List a new propety.</CardText>
-            <Button><Link to ="/create">New Listing</Link></Button>
+            <ButtonRed><Link to ="/create">New Listing</Link></ButtonRed>
           </Card>
         </Col>
         
