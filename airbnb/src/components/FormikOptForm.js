@@ -15,6 +15,7 @@ const OptForm = ({ values, errors, touched, status }) => {
     }
   }, [status]);
 
+
   return (
     <div>
     <div className='backgroundOpt'></div>
@@ -164,6 +165,7 @@ const OptForm = ({ values, errors, touched, status }) => {
         <br></br>
         <button>Submit!</button>
       </Form>
+      
       {opt.map(e => {
         return(
         <ul key={e.id}>
@@ -206,11 +208,6 @@ const FormikOptForm = withFormik({
   handleSubmit(values, {setStatus}) {
     console.log("Object of data:", values)
 
-    axios.post('https://airbnb-optimal-price.herokuapp.com/api', values)
-      .then(res => {
-        console.log("DS Post Response ", res)
-      })
-
     axiosWithAuth()
       .post("https://bnb-web-backend.herokuapp.com/api/features/add-features", values)
       .then(res => {
@@ -218,6 +215,7 @@ const FormikOptForm = withFormik({
       })
       .catch(err => console.log("Error:", err.res));
   }
+   
 })(OptForm);
 console.log("This is the HOC", FormikOptForm);
 export default FormikOptForm;
